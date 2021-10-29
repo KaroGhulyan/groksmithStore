@@ -1,15 +1,14 @@
 import axios from 'axios';
 import { Dispatch } from 'redux';
-import { Action, ProductActionType } from './types';
+import { ProductAction, ProductActionType } from './types';
 import { getProductsUrl } from '../config/config.json'
-import { Product } from '../interfaces';
 
 
 
 
 
 const getProducts = () => {
-  return async (dispatch: Dispatch<Action>) => {
+  return async (dispatch: Dispatch<ProductAction>) => {
     try {
 
       dispatch({ type: ProductActionType.getProducts, payload: [] })

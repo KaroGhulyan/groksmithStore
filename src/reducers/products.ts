@@ -1,5 +1,5 @@
 import { ProductState } from './../interfaces';
-import { Action, ProductActionType } from '../actions/types';
+import { ProductAction, ProductActionType } from '../actions/types';
 
 const initialState: ProductState = {
   products: [],
@@ -7,7 +7,7 @@ const initialState: ProductState = {
   error:null,
 }
 
-const productsReducer = (state = initialState, action: Action): ProductState => {
+const productsReducer = (state = initialState, action: ProductAction): ProductState => {
   switch (action.type) {
     case ProductActionType.getProducts:
       return {
@@ -30,7 +30,5 @@ const productsReducer = (state = initialState, action: Action): ProductState => 
   }
   return state;
 }
-
-// export const selectProducts = (initialState: any) => initialState.products;
 
 export default productsReducer

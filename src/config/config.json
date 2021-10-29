@@ -1,3 +1,5 @@
 {
-  "getProductsUrl": "https://fakestoreapi.com/products"
+  "getProductsUrl": "https://fakestoreapi.com/products",
+  "signUpUrl": "https://fakestoreapi.com/users",
+  "signInUrl": "https://fakestoreapi.com/auth/login"
 }

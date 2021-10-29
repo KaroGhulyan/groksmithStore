@@ -6,11 +6,13 @@ import HomePage from "./home-page.tsx";
 import Orders from "./orders-page/orders-page.tsx";
 // @ts-ignore
 import Login from './login/login.tsx'
-
+// @ts-ignore
+import RegistrationForm from "./register/register";
 
 export {
   HomePage,
   CartPage,
   Orders,
-  Login
+  Login,
+  RegistrationForm
 }
