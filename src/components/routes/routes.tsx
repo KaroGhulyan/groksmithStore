@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { Route, Switch,Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useTypeSelector } from '../hooks/useTypeSelector';
 import { HomePage, CartPage, Orders, Login, RegistrationForm } from '../pages';
 import PrivateRoute from './private-route';
 
 const Routes = () => {
   const { token} = useTypeSelector(state => state.user);
-  const [isLoggedIn, setIsLoggedIn] = useState('')
-  
 
-  useEffect(() => {
-    setIsLoggedIn(token)
-  }, [token])
-  
   return (
-    <>
+    <Switch>
       <Route path="/login" component={Login} />
-      <PrivateRoute path="/" component={HomePage} exact />
+      <PrivateRoute path="/" token={token} component={HomePage} />
       <Route path="/cart" component={CartPage} />
       <Route path="/orders" component={Orders} />
       <Route path="/register" component={RegistrationForm} />
-    </>
+    </Switch>
   )
 }
 

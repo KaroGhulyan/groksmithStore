@@ -9,6 +9,7 @@ interface Token {
 }
 
 const signIn = (data: SignIn) => {
+  
   return async (dispatch: Dispatch<UserAction>) => {
     try {
       const response = await axios.post<Token>(signInUrl, data);

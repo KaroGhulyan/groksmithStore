@@ -10,8 +10,8 @@ import { useActions } from '../hooks/useAction';
 const StoreList = (): JSX.Element => {
 
   const { products, loading, error } = useTypeSelector(state => state.products);
-  const { getProducts } = useActions()
 
+  const { getProducts } = useActions()
 
   useEffect(() => {
     getProducts()
@@ -31,7 +31,7 @@ const StoreList = (): JSX.Element => {
           products.map(product => {
 
             return (
-              <StoreListItem key={product.id} product={product} />
+              <StoreListItem key={product.id} product={product}/>
             )
           })
         }

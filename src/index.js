@@ -7,19 +7,29 @@ import ErrorBoundry from './components/error-boundry';
 import StoreService from './services/store-service';
 import { StoreProvider } from './components/store-context/store-context';
 import store from './store';
-import './style.scss'
+import './style.scss';
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query';
 
 const storeService = new StoreService();
+const queryClient = new QueryClient();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ErrorBoundry>
-      <StoreProvider>
-        <Router>
-          <App />
-        </Router>
-      </StoreProvider>
-    </ErrorBoundry>
-  </Provider>,
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <ErrorBoundry>
+        <StoreProvider>
+          <Router>
+            <App />
+          </Router>
+        </StoreProvider>
+      </ErrorBoundry>
+    </Provider>
+  </QueryClientProvider>,
   document.getElementById('root')
 );
