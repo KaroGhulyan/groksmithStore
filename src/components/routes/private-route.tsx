@@ -1,11 +1,6 @@
-import { useEffect, useState } from "react";
 import { Redirect, Route } from "react-router"
-import { useTypeSelector } from "../hooks/useTypeSelector";
 
 const PrivateRoute = ({ token,component: Component, ...rest }: any) => {
-
-
-
   return (
     <Route
       {...rest}

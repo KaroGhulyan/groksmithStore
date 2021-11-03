@@ -3,10 +3,10 @@ import { Card} from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Product } from '../../interfaces';
 
-const StoreListItem = ({ title, description, image, price  }: Product): JSX.Element => {
+const StoreListItem = ({product}:any): JSX.Element => {
 
   const { Meta } = Card;
-  // const {  title, description, image,price } = product
+  const {  title, description, image,price } = product as Product
   
   return (
     <Card hoverable

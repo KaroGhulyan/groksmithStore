@@ -1,7 +1,9 @@
-import { ProductActionType, UserActionType } from "./actions/types";
 export interface SignIn {
-  username:string,
-  password:string
+  username: string,
+  password: string
+}
+export interface Token {
+  token: string
 }
 
 export interface Product {
@@ -45,29 +47,3 @@ export interface UserState {
   error: null | string
 }
 
-export interface GetProductsAction {
-  type: ProductActionType.getProducts;
-  payload: Product[]
-}
-
-export interface GetProductsSuccessAction {
-  type: ProductActionType.getProductsSuccess;
-  payload: any
-}
-export interface GetProductsErrorAction {
-  type: ProductActionType.getProductsError;
-  payload: string
-}
-
-export interface isLoggedInAction {
-  type: UserActionType.isLoggedIn;
-  payload: string
-}
-export interface getUserAction {
-  type: UserActionType.getUser;
-  payload: User
-}
-export interface GetUserErrorAction {
-  type: UserActionType.getUserError;
-  payload: string
-}

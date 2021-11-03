@@ -1,37 +1,37 @@
-import React, { useEffect } from 'react'
 import { Row } from 'antd';
 import StoreListItem from '../store-list-item'
-import { Product } from '../../interfaces';
 import Spinner from '../spinner/spinner';
-import { useTypeSelector } from '../hooks/useTypeSelector';
-import { useActions } from '../hooks/useAction';
+import { WithStoreService } from '../hoc';
+import { useQuery } from 'react-query';
+import { Product } from '../../interfaces';
+import StoreService from '../../services/store-service';
+import ErrorIndicator from '../error-indicator';
+import { useProducts } from '../../hooks/products';
 
+interface StoreListProps {
+  data: Product[],
+  isLoading:any,
+  
+}
 
 const StoreList = (): JSX.Element => {
 
-  const { products, loading, error } = useTypeSelector(state => state.products);
+  const { isLoading, error, data: products} = useProducts()
 
-  const { getProducts } = useActions()
-
-  useEffect(() => {
-    getProducts()
-  }, [])
-
-
-  if (loading) {
+  if (isLoading) {
     return <Spinner />
   }
   if (error) {
-    return <h1>Error</h1>
+    return <ErrorIndicator />
   }
+
   return (
     <div className="site-card-wrapper">
       <Row gutter={[26, 26]}>
         {
-          products.map(product => {
-
+         products && products.map((product) => {
             return (
-              <StoreListItem key={product.id} product={product}/>
+              <StoreListItem key={product.id} product={product} />
             )
           })
         }

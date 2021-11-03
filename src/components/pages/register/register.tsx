@@ -9,7 +9,6 @@ import {
   Button,
 } from 'antd';
 import { ContentWrapper } from '../../../style';
-import { useActions } from '../../hooks/useAction';
 
 const { Option } = Select;
 
@@ -39,31 +38,30 @@ const tailFormItemLayout = {
 
 const RegistrationForm = () => {
   const [form] = Form.useForm();
-  const { signUp } = useActions()
 
   const onFinish = (values: any) => {
 
     console.log('Received values of form: ', values);
-    signUp({
-      email: 'karo@gmail.com',
-      username: 'karo',
-      password: '1111',
-      name: {
-        firstname: 'John',
-        lastname: 'Doe'
-      },
-      address: {
-        city: 'kilcoole',
-        street: '7835 new road',
-        number: 3,
-        zipcode: '12926-3874',
-        geolocation: {
-          lat: '-37.3159',
-          long: '81.1496'
-        }
-      },
-      phone: '1-570-236-7033'
-    })
+    // signUp({
+    //   email: 'karo@gmail.com',
+    //   username: 'karo',
+    //   password: '1111',
+    //   name: {
+    //     firstname: 'John',
+    //     lastname: 'Doe'
+    //   },
+    //   address: {
+    //     city: 'kilcoole',
+    //     street: '7835 new road',
+    //     number: 3,
+    //     zipcode: '12926-3874',
+    //     geolocation: {
+    //       lat: '-37.3159',
+    //       long: '81.1496'
+    //     }
+    //   },
+    //   phone: '1-570-236-7033'
+    // })
   };
 
   const prefixSelector = (

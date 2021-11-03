@@ -1,5 +1,5 @@
-import React from 'react';
+import React,{createContext}from 'react';
 
-const { Provider:StoreProvider, Consumer:StoreConsumer } = React.createContext();
+const { Provider:StoreProvider, Consumer:StoreConsumer } = createContext();
 
 export { StoreProvider, StoreConsumer };

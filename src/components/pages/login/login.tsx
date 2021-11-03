@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Form, Input, Button } from 'antd';
 import { Container, ContentWrapper } from '../../../style';
 import { Link } from 'react-router-dom';
-import { useActions } from '../../hooks/useAction';
 import { SignIn } from '../../../interfaces';
-// import axios from 'axios';
-// import { signInUrl} from '../../../config/config.json'
+
+
 const Login = () => {
-  const { signIn } = useActions()
   // interface Token {
   //   token: string
   // }
+
+  const storeService = useContext()
+  console.log(storeService);
   const onFinish = async (values: SignIn) => {
     console.log('Success:', values);
     // const response = await axios.post<Token>(signInUrl, values);
     // const token = response.data.token
     // localStorage.setItem('token',token)
-    signIn(values)
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -68,3 +68,6 @@ const Login = () => {
 }
 
 export default Login
+
+
+
