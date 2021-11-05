@@ -1,23 +1,15 @@
 import { Row } from 'antd';
 import StoreListItem from '../store-list-item'
 import Spinner from '../spinner/spinner';
-import { WithStoreService } from '../hoc';
-import { useQuery } from 'react-query';
 import { Product } from '../../interfaces';
-import StoreService from '../../services/store-service';
 import ErrorIndicator from '../error-indicator';
-import { useProducts } from '../../hooks/products';
-
-interface StoreListProps {
-  data: Product[],
-  isLoading:any,
-  
-}
+import { useContext } from 'react';
+import { StoreContext } from '../store-context';
 
 const StoreList = (): JSX.Element => {
 
-  const { isLoading, error, data: products} = useProducts()
-
+  const { products:{ isLoading, error, data: products } } = useContext(StoreContext);
+  
   if (isLoading) {
     return <Spinner />
   }
@@ -29,7 +21,7 @@ const StoreList = (): JSX.Element => {
     <div className="site-card-wrapper">
       <Row gutter={[26, 26]}>
         {
-         products && products.map((product) => {
+          products && products.map((product: Product) => {
             return (
               <StoreListItem key={product.id} product={product} />
             )
@@ -39,7 +31,5 @@ const StoreList = (): JSX.Element => {
     </div>
   )
 }
-
-
 
 export default StoreList

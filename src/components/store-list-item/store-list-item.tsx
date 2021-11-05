@@ -4,9 +4,10 @@ import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/ico
 import { Product } from '../../interfaces';
 
 const StoreListItem = ({product}:any): JSX.Element => {
-
+  // console.log(product);
+  
   const { Meta } = Card;
-  const {  title, description, image,price } = product as Product
+  const {  title, description, image,price } = product
   
   return (
     <Card hoverable

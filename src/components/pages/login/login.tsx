@@ -3,20 +3,25 @@ import { Form, Input, Button } from 'antd';
 import { Container, ContentWrapper } from '../../../style';
 import { Link } from 'react-router-dom';
 import { SignIn } from '../../../interfaces';
+import { StoreContext } from '../../store-context';
+import { useHistory } from 'react-router';
+
 
 
 const Login = () => {
-  // interface Token {
-  //   token: string
-  // }
+  
+  const { storeService } = useContext(StoreContext);
+  const {push} = useHistory();
 
-  const storeService = useContext()
-  console.log(storeService);
+
+
   const onFinish = async (values: SignIn) => {
-    console.log('Success:', values);
-    // const response = await axios.post<Token>(signInUrl, values);
-    // const token = response.data.token
-    // localStorage.setItem('token',token)
+    const token =  await storeService.signIn(values);
+    console.log(token)
+    
+    if(token){
+      push('/')
+    }
   };
 
   const onFinishFailed = (errorInfo: any) => {

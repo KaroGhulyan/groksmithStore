@@ -1,3 +1,5 @@
-import { StoreProvider, StoreConsumer } from './store-context';
+import { createContext } from "react";
 
-export default { StoreProvider, StoreConsumer };
+
+export const StoreContext = createContext()
+

@@ -1,9 +1,9 @@
 import { Route, Switch } from 'react-router-dom';
+import { withAuthService, WithStoreService } from '../hoc';
 import { HomePage, CartPage, Orders, Login, RegistrationForm } from '../pages';
-import PrivateRoute from './private-route';
 
-const Routes = () => {
-  const token = true
+const RoutesWrapper = () => {
+
   return (
     <Switch>
       <Route path="/login" component={Login} />
@@ -13,6 +13,10 @@ const Routes = () => {
       <Route path="/register" component={RegistrationForm} />
     </Switch>
   )
+  
 }
+
+const Routes = WithStoreService(RoutesWrapper);
+
 
 export default Routes

@@ -1,12 +1,26 @@
 import React from 'react';
-import { StoreConsumer } from '../store-context/store-context';
+import { useProducts } from '../../hooks/products';
+import StoreService from '../../services/store-service';
+import { StoreContext } from '../store-context';
 
-const WithStoreService = () => (Wrapped) => {
-  return (props) => (
-    <StoreConsumer>
-      {(storeService) => <Wrapped {...props} storeService={storeService} />}
-    </StoreConsumer>
-  );
+
+
+const WithStoreService = (Component) => {
+  
+  const StoreServiceComponent = ({ ...props }) => {
+    const storeService = new StoreService();
+    const token = JSON.parse(localStorage.getItem('token'));
+    const products = useProducts();
+    
+ 
+    return (
+      <StoreContext.Provider value={{products,storeService}}>
+        <Component {...props} />;
+      </StoreContext.Provider>
+    );
+  };
+  
+  return StoreServiceComponent;
 };
 
 export default WithStoreService;
