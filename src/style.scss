@@ -3,14 +3,15 @@
 .site-card-wrapper{
   padding: 100px 0;
   img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
     margin: 0 auto;
   }
 }
 
 .ant-card {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

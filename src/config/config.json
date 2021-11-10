@@ -1,5 +1,7 @@
 {
   "getProductsUrl": "https://fakestoreapi.com/products",
+  "getCategories": "https://fakestoreapi.com/products/categories",
+  "getCategory": "https://fakestoreapi.com/products/category",
   "signUpUrl": "https://fakestoreapi.com/users",
   "signInUrl": "https://fakestoreapis.com/auth/login"
 }

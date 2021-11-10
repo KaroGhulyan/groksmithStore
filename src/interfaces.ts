@@ -14,6 +14,10 @@ export interface Product {
   description: string,
   image: string
 }
+
+// export interface Categories {
+  
+// }
 export interface User {
   id: number,
   email: string,

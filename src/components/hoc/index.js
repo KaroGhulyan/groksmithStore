@@ -1,4 +1,4 @@
-import withAuthService from './with-auth-service';
-import WithStoreService from './with-store-service';
+import WithAuthService from './with-auth-service.tsx';
+import WithStoreService from './with-store-service.tsx';
 
-export { WithStoreService, withAuthService };
+export { WithStoreService, WithAuthService };
