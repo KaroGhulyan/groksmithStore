@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { useHistory } from 'react-router';
-import { useProducts } from '../../hooks/products';
+import { useUser } from '../../hooks/user';
 import StoreService from '../../services/store-service';
 import { StoreContext } from '../store-context';
 
@@ -9,11 +8,11 @@ const WithStoreService = (Component:FC) => {
   const StoreServiceComponent = ({ ...props }) => {
     
     const storeService = new StoreService();
-    const history = useHistory();
-    const products = useProducts();
-
+    const user = useUser(1)
+    console.log(user);
+    
     return (
-      <StoreContext.Provider value={{ products, storeService }}>
+      <StoreContext.Provider value={{ user, storeService }}>
         <Component {...props} />;
       </StoreContext.Provider>
     );

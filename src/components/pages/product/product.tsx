@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router';
 import { Card} from 'antd';
 import Meta from 'antd/lib/card/Meta';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined } from '@ant-design/icons';
 import { useProduct } from '../../../hooks/products'
 // import { Product } from '../../../interfaces';
 import { ContentWrapper } from '../../../style'
@@ -36,9 +36,7 @@ const Product = () => {
           style={{ width: "calc(100%/4)" }}
           cover={<img alt="example" src={data.image} />}
           actions={[
-            <SettingOutlined key="setting" />,
-            <EditOutlined key="edit" />,
-            <EllipsisOutlined key="ellipsis" />,
+            <PlusCircleOutlined  key="add" onClick={()=>console.log(123)}/>,
           ]}
         >
           <Meta title={data.title} description={data.description} style={{ marginBottom: '30px' }} />

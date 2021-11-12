@@ -9,11 +9,11 @@ const AppWrapper = () => {
       <Header />
       <Container>
         <Wrapper>
-          <Routes />
+          <Routes/>
         </Wrapper>
       </Container>
     </>
-  );
+  )
 };
 
 const App = WithAuthService(WithStoreService(AppWrapper));

@@ -10,7 +10,6 @@ interface Category {
 const Category: React.FC<Category> = ({ productType}) => {
   
   const category = useCategory(productType);
-  console.log(category)
   return (
     <StoreList products={category}/>
   )

@@ -3,17 +3,13 @@ import StoreListItem from '../store-list-item'
 import Spinner from '../spinner/spinner';
 import { Product } from '../../interfaces';
 import ErrorIndicator from '../error-indicator';
-import { useContext } from 'react';
-import { StoreContext } from '../store-context';
+import { UseQueryResult } from 'react-query';
 
-interface StoreListInterface{
-  isLoading:boolean,
-  isError:boolean
-  data:Product[]
+interface StoreListInterface {
+  products: UseQueryResult<Product[]>
 }
-
-const StoreList: React.FC<any> = (props) => {
-
+const StoreList: React.FC<StoreListInterface> = (props) => {
+ 
   const { isLoading, isError,error, data: products } = props.products;
 
   if (isLoading) {

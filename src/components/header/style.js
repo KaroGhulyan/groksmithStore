@@ -8,7 +8,10 @@ export const HeaderWrapper = styled.header`
   z-index: 1;
   background-color: white;
 `;
-
+export const MenuWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export const Nav = styled.nav`
   display: flex;
   align-items: center;

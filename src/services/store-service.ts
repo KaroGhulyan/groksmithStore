@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { getProductsUrl, signInUrl, getCategories, getCategory } from '../config/config.json';
+import { getProductsUrl, signInUrl, getCategories, getCategory, signUpUrl } from '../config/config.json';
 import { Product, Token } from '../interfaces';
+
+
 export default class StoreService {
 
   getCategories = async () => {
@@ -26,4 +28,12 @@ export default class StoreService {
     localStorage.setItem('token', token);
     return token
   }
+  getUser = async (id:number)=>{
+    const { data } = await axios.get(`${signUpUrl}/${id}`)
+    return data
+  }
+  // addNewProduct= async (values)=>{
+  //   const { data } = await axios.post<Product>(`${getProductsUrl}/${id}`);
+  //   return data;
+  // }
 }

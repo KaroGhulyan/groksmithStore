@@ -3,8 +3,10 @@ import { useProducts } from '../../hooks/products'
 import StoreList from '../store-list'
 
 
-const HomePage = (): JSX.Element => {
-  const products = useProducts()
+const HomePage: React.FC = () => {
+  
+  const products = useProducts();
+  
   return (
     <StoreList products={products}/>
   )
